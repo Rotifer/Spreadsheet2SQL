@@ -1,0 +1,38 @@
+<!--
+Code to display the form that takes the values needed to build the SQL statements
+The form user input elements (text entry and drop-down list are defined in an HTML table.
+This is a "quick-and-dirty" solution and is definitely not current best practice!
+-->
+<b>Create "CREATE TABLE" and "INSERT" SQL From Spreadsheet</b>
+<hr />
+<form>
+  <table>
+    <tr>
+      <td>Database Table Name:</td><td><input id="table_name" name="table_name" type="text" /></td>
+    </tr>
+    <tr>
+      <td>Relational Database Name:</td><td><select name="rdbms_name" id="rdbms_name">
+                                            <option value="postgres">PostgrSQL</option>
+                                            <option value="mysql">MySQL</option>
+                                            <option value="sqlite">SQLite</option>
+                                            </select></td>
+    </tr>
+    <tr>
+      <td>Name For New Spreadsheet:</td><td><input id="new_spreadsheet_name" name="new_spreadsheet_name" type="text" /></td>
+    </tr>
+    <tr>
+      <td>Name For New Sheet:</td><td><input id="new_sheet_name" name="new_sheet_name" type="text" /></td>
+    </tr>
+  </table>
+   <input onclick="formSubmit()" type="button" value="Make SQL" />
+   <input onclick="google.script.host.close()" type="button" value="Exit" />
+</form>
+<!--
+Defines the GAS function to run on the server when the user submits the form.
+Function "getValuesFromForm()" is defined in file "Code.gs".
+-->
+<script type="text/javascript">
+   function formSubmit() {
+     google.script.run.getValuesFromForm(document.forms[0]);
+   }
+</script>
