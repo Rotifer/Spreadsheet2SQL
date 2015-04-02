@@ -1,4 +1,5 @@
-/*Create a new spreadsheet, add a sheet to it with user-specified name and write the SQL statements to it.
+/*
+Create a new spreadsheet, add a sheet to it with user-specified name and write the SQL statements to it.
 */
 function writeSqlToSheet(createTableSql, insertSqls, spreadsheetName, sheetName) {
   var newSpreadsheet = SpreadsheetApp.create(spreadsheetName),
