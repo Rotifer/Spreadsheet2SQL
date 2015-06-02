@@ -201,7 +201,7 @@ var SPREADSHEET2SQL = (function() {
         // their equivalents for each of the three supported RDBMSs (PostgreSQL, MySQL and SQLite).
         dbms_type_map = {postgres: {primary_key: 'SERIAL PRIMARY KEY', string: 'CHARACTER VARYING', date: 'DATE', float: 'NUMERIC', integer: 'INTEGER'},
                        sqlite:{primary_key: 'INTEGER PRIMARY KEY', string: 'TEXT', date: 'DATE', float: 'REAL', integer: 'INTEGER'},
-                         mysql: {primary_key: 'INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT'}, string: 'VARCHAR(4000)', date: 'DATE', float: 'DECIMAL(11,5)'};
+                         mysql: {primary_key: 'INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT', string: 'VARCHAR(4000)', date: 'DATE', float: 'DECIMAL(11,5)'}};
     pkColumnName = tableName.replace(/\./, '_') + '_id';
     // Loop over all the column names and build up the "CREATE TABLE" statement.
     ddl = 'CREATE TABLE ' + tableName + '(\n  ' + pkColumnName + ' ' + dbms_type_map[dbms]['primary_key'] + ',\n';
